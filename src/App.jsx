@@ -44,7 +44,10 @@ function App() {
 
   useEffect(() => {
     const storedData = localStorage.getItem("diary");
-    if (!storedData) return;
+    if (!storedData) {
+      setIsLoding(false);
+      return;
+    }
     const parsedData = JSON.parse(storedData);
 
     if (!Array.isArray(parsedData)) {
